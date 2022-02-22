@@ -1,2 +1,19 @@
 <h1>Hello World!</h1>
 This is my first rails webpage!
+<hr/>
+
+<ul>
+    <% @products.each do |product| %>
+        <li>
+            <strong><%=product.name%></strong> costs $<%=product.price%> dollars
+            <br/>
+            <%= image_tag(product.image) %><br/>
+            <%= product.description%>
+            <hr/>
+        </li>
+    <% end %>
+</ul>
+
+<%= @products.count %> products and counting!
+
+<hr/>
