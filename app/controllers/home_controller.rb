@@ -1,7 +1,26 @@
 class HomeController < ApplicationController
+  
   def index
+    if session[:cart].nil?
+        session[:cart] = []
+    end
     @products = Product.all
-  end
+    @cart = session[:cart]
+end
+
+  def buy
+    if session[:cart].nil?
+        session[:cart] = []
+    end
+    product = Product.find(params[:id])
+    session[:cart].append(product)
+    redirect_to :root
+end
+
+def checkout
+    @cart = session[:cart]
+    session[:cart] = []
+end
 
   def about
   end

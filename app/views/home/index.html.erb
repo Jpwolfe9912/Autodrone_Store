@@ -1,19 +1,25 @@
 <h1>Hello World!</h1>
 This is my first rails webpage!
 <hr/>
+<h2>There are <%= @cart.length %> items in your cart</h2>
 
 <ul>
     <% @products.each do |product| %>
         <li>
             <strong><%=product.name%></strong> costs $<%=product.price%> dollars
             <br/>
-            <%= image_tag(product.image) %><br/>
+            <%= image_tag(product.image, :size => '260x260') %>
+            <br/>
             <%= product.description%>
+            <br/>
+            <%= link_to "Buy Now", buy_path(product), class: "btn btn-primary" %>
             <hr/>
         </li>
     <% end %>
 </ul>
 
 <%= @products.count %> products and counting!
+<br/>
+<a href="/checkout">Checkout</a>
 
 <hr/>

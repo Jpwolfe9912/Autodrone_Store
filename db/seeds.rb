@@ -5,3 +5,12 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+Product.create([
+    {
+        name: "Coffee Beans",
+        description: "Beans of Coffee!!!",
+        price: 5.00,
+        image: "coffee_beans.jfif"
+    }
+])
