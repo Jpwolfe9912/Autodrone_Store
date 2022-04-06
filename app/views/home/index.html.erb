@@ -12,7 +12,13 @@ This is my first rails webpage!
             <br/>
             <%= product.description%>
             <br/>
-            <%= link_to "Buy Now", buy_path(product), class: "btn btn-primary" %>
+            Stock: <%= product.stock%>
+            <br/>
+            <%if(product.stock > 0)%>
+                <%= link_to "Buy Now", buy_path(product), class: "btn btn-primary" %>
+            <%else%>
+                <span class="badge bg-secondary">OUT OF STOCK</span>
+            <%end%>
             <hr/>
         </li>
     <% end %>
